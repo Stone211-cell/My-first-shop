@@ -12,13 +12,15 @@ const initialState = {
 
 
 const FormContainer = ({ action, children }: {action:actionFunction, children: React.ReactNode }) => {
-  const [state, formAction, pending] = useActionState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);  
+  // , pending 
   useEffect(() => {
     if(state.message){
         toast(state.message)
     }
   }, [state]);
   return (
+    
     <form className="space-y-4" action={formAction}>
       {children}
     </form>

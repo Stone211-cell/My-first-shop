@@ -3,6 +3,7 @@
 import { useTransition } from 'react'
 import { createCheckoutSession } from '@/actions/actions' 
 
+
 export default function CheckoutForm({ params }: { params: { id: string } }) {
   const [isPending, startTransition] = useTransition()
 
@@ -14,6 +15,7 @@ export default function CheckoutForm({ params }: { params: { id: string } }) {
           window.location.href = url // เปลี่ยนหน้าไป Stripe ทันที
         }
       } catch (error) {
+          console.error("Checkout error:", error)
         alert("เกิดข้อผิดพลาดในการสร้าง checkout session")
       }
     })

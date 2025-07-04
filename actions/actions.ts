@@ -219,7 +219,7 @@ export async function createCheckoutSession(productId: string) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card"],
+      payment_method_types: ["promptpay","card"],
       line_items: [
         {
           price_data: {
